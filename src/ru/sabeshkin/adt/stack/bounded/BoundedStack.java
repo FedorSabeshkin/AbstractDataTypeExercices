@@ -1,4 +1,4 @@
-package ru.sabeshkin.adt;
+package ru.sabeshkin.adt.stack.bounded;
 
 import static org.junit.Assume.assumeNoException;
 
@@ -39,6 +39,9 @@ class BoundedStack<T> extends BoundedStackAbstract<T>{
 	
 	@Override
 	public void push(T value) {
+		if (size() == MAX_SIZE) {
+			stack.remove(0);
+		}
 		stack.add(value);
 	}
 	@Override

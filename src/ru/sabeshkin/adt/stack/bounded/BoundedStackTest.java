@@ -1,10 +1,21 @@
-package ru.sabeshkin.adt;
+package ru.sabeshkin.adt.stack.bounded;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
 class BoundedBoundedStackTest {
+	
+	@Test
+	public void test_oversize() throws Exception {
+		int maxStackSize = 4;
+		BoundedStack<Integer> stack = new BoundedStack<Integer>(maxStackSize);
+		for (int i = 0; i < 5; i++){
+			stack.push(new Integer(i));
+		}
+		assertTrue(
+				stack.size()<=maxStackSize);
+	}
 	
 	@Test
 	public void test_createStack_isErr() throws Exception {

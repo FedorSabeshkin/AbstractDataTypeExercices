@@ -1,4 +1,4 @@
-package ru.sabeshkin.adt;
+package ru.sabeshkin.adt.stack.bounded;
 
 abstract class BoundedStackAbstract<T> {
 

@@ -1,0 +1,50 @@
+package ru.sabeshkin.adt.list.linked;
+abstract class LinkedList<T>
+
+    public const int REMOVE_NIL = 0; // remove() ещё не вызывалась    
+	public const int REMOVE_OK = 1; // последняя remove() отработала нормально
+    public const int REMOVE_ERR = 2; // указатель на null - пустой список
+	
+	// конструктор
+    // постусловие: создан новый пустой список
+    public LinkedList<T> LinkedList();
+	
+	// команды:
+	// предусловие: курсор находится не на null 
+	// постусловие: справа от текущего узла добавлено новое значение
+	// постусловие: в новом значении указатель на следующий узел указывает на ранее стоящий на этом месте элемент или на null, если там ничего не было
+    public void put_right(T value); 
+	
+	// предусловие: курсор находится не на null 
+	// постусловие: слева от текущего узла добавлено новое значение
+	// постусловие: в новом значении указатель на следующий узел указывает на ранее стоящий на этом месте элемент или на null, если там ничего не было
+	public void put_left(T value); 
+	
+	// предусловие: если курсор находится на null, то справа от него есть ненулевой сосед
+	// постусловие: курсор показывает на правого соседа прошлого узла
+	public void right();
+	
+	public void head();
+	
+	public void tail();
+	
+	public void remove();
+	
+	public void clear();
+	
+	// запросы:
+	// предусловие: стек не пустой
+    public int size (); 
+	/**
+	* Получить значение текущего узла
+	*/
+	public T get()
+	
+	
+	// дополнительные запросы:
+    public int get_put_right_status(); // возвращает значение PUT_RIGHT_*
+    public int get_put_left_status(); // возвращает значение PUT_LEFT_*
+    public int get_right_status(); // возвращает значение RIGHT_*
+	public int get_left_status(); // возвращает значение LEFT_*
+	public int get_get_status(); // возвращает значение GET_*
+	public int get_remove_status(); // возвращает значение REMOVE_*
