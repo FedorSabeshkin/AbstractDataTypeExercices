@@ -17,7 +17,7 @@ public final int PUT_LEFT_ERR = 2; // ошибка при добавлении
 
 public final int RIGHT_NIL = 0; // right() ещё не вызывалась    
 public final int RIGHT_OK = 1; // последняя right() отработала нормально
-public final int RIGHT_ERR = 2; // ошибка при перемещении курсора в право(возможно были на null)
+public final int RIGHT_ERR = 2; // ошибка при перемещении курсора вправо(возможно были на null)
 
 public final int GET_NIL = 0; // get() ещё не вызывалась    
 public final int GET_OK = 1; // последний запрос get() отработал нормально
