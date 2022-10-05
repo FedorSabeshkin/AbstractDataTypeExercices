@@ -6,10 +6,9 @@ public class HashTableImpl extends HashTable {
   private int step;
   private String[] slots;
   private final int DEFAULT_STEP = 3;
-  private int foundIndex;
   private int putStatus;
-  private int findStatus;
-  private int getStatus;
+  private int isExistStatus;
+  private int removeStatus;
 
   public HashTableImpl(int size) {
     super(size);
@@ -24,7 +23,7 @@ public class HashTableImpl extends HashTable {
   /*
    * return index of value
    */
-  public int hashFun(String value) {
+  private int hashFun(String value) {
     char[] charArr = new char[value.length()];
     int sum = 0;
     for (int i = 0; i < value.length(); i++) {
@@ -38,14 +37,14 @@ public class HashTableImpl extends HashTable {
   /*
    * return index after check collisions
    */
-  public int seekSlot(String value) {
+  private int seekSlot(String value) {
     int i;
     i = hashFun(value);
     i = checkIndex(i, value);
     return i;
   }
 
-  public int checkIndex(int i, String key) {
+  private int checkIndex(int i, String key) {
     // check slot by step
     i = checkWithStep(i, key);
     // check each slot
@@ -61,7 +60,7 @@ public class HashTableImpl extends HashTable {
     return i;
   }
 
-  public int checkWithStep(int i, String key) {
+  private int checkWithStep(int i, String key) {
     while (i < size && slots[i] != null) {
       if (slots[i].equals(key)) {
         break;
@@ -72,7 +71,7 @@ public class HashTableImpl extends HashTable {
 
   }
 
-  public int checkEachElement(int i, String key) {
+  private int checkEachElement(int i, String key) {
     i = 0;
     while (i < size && slots[i] != null) {
       if (slots[i].equals(key)) {
@@ -97,43 +96,53 @@ public class HashTableImpl extends HashTable {
     putStatus = 2;
   }
 
-  @Override
-  public void find(String value) {
+  private int find(String value) {
     int i = hashFun(value);
     if (value.equals(slots[i])) {
-      foundIndex = i;
-      findStatus = 1;
+      return i;
     } else {
       for (i = 0; i < size; i++) {
         if (value.equals(slots[i])) {
-          foundIndex = i;
-          findStatus = 1;
+          return i;
         }
       }
-      foundIndex = -1;
-      findStatus = 2;
+      return -1;
     }
   }
 
+
   @Override
-  public int get() {
-    getStatus = 1;
-    return findStatus;
+  public boolean isExist(String value) {
+    int foundIndex = find(value);
+    isExistStatus = 1;
+    return foundIndex != -1;
+  }
+
+  @Override
+  public void remove(String value) {
+    int foundIndex = find(value);
+    if (foundIndex != -1) {
+      removeStatus = 1;
+      slots[foundIndex] = null;
+      return;
+    }
+    removeStatus = 2;
+  }
+
+  @Override
+  public int get_is_exist_status() {
+    return isExistStatus;
+  }
+  
+
+  @Override
+  public int get_remove_status() {
+    return removeStatus;
   }
 
   @Override
   public int get_put_status() {
     return putStatus;
-  }
-
-  @Override
-  public int get_find_status() {
-    return findStatus;
-  }
-
-  @Override
-  public int get_get_status() {
-    return getStatus;
   }
 
 }
