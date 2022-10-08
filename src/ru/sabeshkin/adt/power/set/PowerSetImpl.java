@@ -135,12 +135,9 @@ public class PowerSetImpl extends PowerSet {
 
   @Override
   public boolean isExist(String value) {
+    removeStatus = 1;
     int index = find(value);
-    if(index != (-1)){
-        return true;
-    } else{
-        return false;
-    }
+    return index != (-1);
   }
 
   @Override
