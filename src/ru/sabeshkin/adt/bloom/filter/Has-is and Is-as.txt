@@ -1,0 +1,56 @@
+Полиморфизм
+
+void addArrayToList(List<String> firstList, String[] nextValues){
+    List<String> updatedList = firstList.clone();
+	nextValues.stream().forEach(
+	element -> updatedList.add(element)
+	) 
+	return updatedList
+}
+
+LinkedList<String> linkedList = new LinkedList<>;
+ArrayList<String> arrayList = new ArrayList<>;
+String[] valuesToAdd = {"Hello", "World"};
+addArrayToList(linkedList, valuesToAdd);
+addArrayToList(arrayList, valuesToAdd);
+
+
+Композиция has-is
+
+class Node {
+	public int value;
+	public Node next;
+
+	public Node(int _value) {
+		value = _value;
+		next = null;
+	}
+
+}
+
+public class LinkedList {
+	public Node head;
+	public Node tail;
+	
+	// ...
+}
+
+
+Наследование is-a
+
+// Parent
+public class ParentList<T> {
+
+  protected Node<T> current;
+  private Node<T> head;
+  private Node<T> tail;
+  right();
+  // ...
+}
+
+// Child
+public class TwoWayList<T> {
+
+  left();
+  // ...
+}
