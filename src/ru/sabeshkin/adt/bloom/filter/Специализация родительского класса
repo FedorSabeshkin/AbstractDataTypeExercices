@@ -1,0 +1,26 @@
+// Cпециализация родительского класса
+
+// Хранение элементов в том порядке в котором мы их подаем
+public abstract class LinkedList<T>  {
+	public Node head;
+	public Node tail;
+
+	public LinkedList() {
+		head = null;
+		tail = null;
+	}
+	
+	public abstract void add(T value);
+	
+	public abstract void find(T t);
+}
+
+// хранение элементов в отсортированном порядке
+public abstract class OrderedList<T>  {
+	
+	@Override
+	public abstract void add(T value);
+	
+	@Override
+	public abstract void find(T t);
+}
