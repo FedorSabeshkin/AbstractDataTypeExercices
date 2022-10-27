@@ -1,0 +1,45 @@
+
+// Ковариантность 
+public class ParentList<Node<T>> {
+
+	// ...
+
+}
+
+public class Node<T> {
+
+	// ...
+
+}
+
+
+public class TwoWayList<TwoWayNode<T>> extends ParentList<Node<T>>{
+
+	// ...
+
+}
+
+public class TwoWayNode<T>  extends <Node<T>>{
+
+	// ...
+
+}
+
+==
+
+// Контравариантность
+
+List<Object> myNums = {1, 2};
+Number myNum = myNums.get(0); //compiler-error
+
+==
+
+Рефлексия 
+
+Я понял динамическое связывание через спецсредства фрэймворка. 
+Тут можно было использовать то, как выполняется выбор реализации метода, который будет вызван, 
+когда у него есть несколько реализаций в разных наследниках. 
+Будет вызвана крайняя реализация или первая? В данном примере на java будет вызвана крайняя, в иерархии наследования, реализация.
+То есть у Expression -> ChildExpression -> SomeExpression, при использовании 
+для работы интерфейса Expression, но при обращении по ссылке, которая ведет на реализацию от SomeExpression
+Будет вызван метод SomeExpression. 
