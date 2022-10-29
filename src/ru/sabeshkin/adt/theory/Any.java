@@ -1,5 +1,5 @@
 package ru.sabeshkin.adt.theory;
 
-public class CovariantExample {
+public class Any extends General{
 
 }
