@@ -4,14 +4,15 @@ import java.io.Serializable;
 
 /**
  * 8 фундаментальных методов класса.
+ * 
  * @author Wizard
  *
  */
 public class General extends Object implements Cloneable, Serializable {
-  
+
   // 1) копирование объекта
   // сочетание конструктора и геттеров для получения значения полей копируемого объекта
-  
+
   // 2) клонирование объекта
   // метод clone() из интерфейса Cloneable
 
@@ -24,8 +25,7 @@ public class General extends Object implements Cloneable, Serializable {
   // 6) печать
   @Override
   public String toString() {
-    return "General{" +
-        '}';
+    return super.toString();
   }
 
   // 7) проверка типа
@@ -33,4 +33,28 @@ public class General extends Object implements Cloneable, Serializable {
 
   // 8) получение реального типа объекта
   // через метод getClass(); класса Object
+
+  public General assignmentAttempt(Object source) {
+    if (source instanceof General) {
+      return (General) source;
+    }
+    return new Void();
+  }
+}
+
+
+final class Void extends Any /* A, B, .... */ {
+}
+
+
+class Test {
+  public static Any getSome() {
+    return new Void();
+  }
+
+  public static void setSome(Any any) {
+    if (any instanceof Void) {
+      System.out.println("wrong value!!!");
+    }
+  }
 }
