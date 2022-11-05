@@ -11,27 +11,22 @@ import java.io.Serializable;
 public class General implements Cloneable, Serializable {
 
   // ...
-  
-  public General assignmentAttempt(Object source) {
-    if (source instanceof General) {
-      return (General) source;
-    }
-    return new Void();
-  }
+
 }
 
-class Any extends General{
+
+class Any extends General {
 
   public Any assignmentAttempt(Object source) {
     if (source instanceof Any) {
       return (Any) source;
     }
-    return new Void();
+    return new None();
   }
 }
 
 
 
-final class Void extends Any /* A, B, .... */ {
+final class None extends Any /* A, B, .... */ {
 }
 
