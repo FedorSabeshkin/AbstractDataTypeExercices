@@ -1,6 +1,7 @@
 package ru.sabeshkin.adt.theory;
 
 import java.io.Serializable;
+import ru.sabeshkin.adt.theory.limited.versatility.Void;
 
 /**
  * 8 фундаментальных методов класса.

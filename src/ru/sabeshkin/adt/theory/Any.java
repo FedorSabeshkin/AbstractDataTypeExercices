@@ -1,5 +1,7 @@
 package ru.sabeshkin.adt.theory;
 
+import ru.sabeshkin.adt.theory.limited.versatility.Void;
+
 public class Any extends General{
 
   public Any assignmentAttempt(Object source) {
