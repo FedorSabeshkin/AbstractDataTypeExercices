@@ -2,7 +2,7 @@ package ru.sabeshkin.adt.theory.limited.versatility;
 
 import ru.sabeshkin.adt.theory.Any;
 
-public class Vector<T> extends Any{
+public class Vector<T> extends Any implements Cloneable{
   private int length;
   private T[] arr;
 
@@ -48,11 +48,11 @@ public class Vector<T> extends Any{
   /**
    * Сумма двух векторов.
    */
-  public static Vector addVectors(Vector v1, Vector v2) {
+  public static Vector addVectors(Vector v1, Vector v2) throws CloneNotSupportedException {
     if (v1.getLength() != v2.getLength()) {
       return new Void();
     }
-    Vector resultVector = (Vector) v1.deepCopy();
+    Vector resultVector = (Vector) v1.clone();
     resultVector.add(v2);
     return resultVector;
   }
