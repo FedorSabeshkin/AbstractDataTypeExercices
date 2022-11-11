@@ -1,0 +1,26 @@
+class A {
+	String say(){
+		return "Hello!";
+	}
+}
+
+
+class Abr extends A{
+	...
+}
+
+// Полиморфизм
+void printSalutation(A speaker){
+	System.out.println(spearer.say())
+}
+
+
+// Ковариантность
+ArrayList<Abr> arrayAbr = ...
+
+ArrayList<? extends A> arrayListCovariant;
+arrayListCovariant = arrayAbr;
+
+==
+Рефлексия
+Все верно, только у меня еще пример кода обработки :).
