@@ -1,0 +1,29 @@
+// Наследование реализации (implementation inheritance)
+
+// Хранение элементов в том порядке в котором мы их подаем
+public class LinkedList<Node<T>>  {
+	public Node head;
+	public Node tail;
+
+	public LinkedList() {
+		head = null;
+		tail = null;
+	}
+	
+	public void addRight(T value){
+		// реализация добавления нового значения
+		// ...	
+	};
+	
+}
+
+// Использование реализации addRight() от родителя
+public abstract class TwoWayList<Node<T>>  {
+	
+	public void addLeft(T value){
+		// реализация добавления нового значения слева
+		// ...	
+	};
+}
+
+

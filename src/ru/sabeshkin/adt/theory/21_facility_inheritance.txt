@@ -1,0 +1,17 @@
+// Льготное наследование (facility inheritance)
+
+public class FinancialReport{
+	
+	final static double PERSONAL_INCOME_TAX = 13.0
+	
+	// ...
+}
+
+
+public class FinancialReportForBusines extends FinancialReport{
+	
+	double CORPORATE_INCOME_TAX;
+	
+	// ...
+}
+
